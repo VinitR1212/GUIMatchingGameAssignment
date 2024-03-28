@@ -6,3 +6,4 @@
 - Leaderboard page
 - Help page (with a brief overview of game)
 - Game page (no game code yet)
+i do not like readmes
