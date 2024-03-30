@@ -91,7 +91,9 @@ public class MenuUI extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void bPlayActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bPlayActionPerformed
-        // TODO add your handling code here:
+        MemoryGame mggui = new MemoryGame();
+        mggui.show();
+        dispose();
         
     }//GEN-LAST:event_bPlayActionPerformed
 
