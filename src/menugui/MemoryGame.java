@@ -1,5 +1,4 @@
 package menugui;
-
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -12,6 +11,7 @@ import java.util.Map;
 public class MemoryGame extends JFrame {
 
     private JPanel boardPanel;
+
     private ArrayList<JButton> buttons;
     private ArrayList<Integer> buttonValues;
     private Map<Integer, ImageIcon> images;
@@ -31,14 +31,14 @@ public class MemoryGame extends JFrame {
         setSize(650, 450);
         setLayout(new BorderLayout());
 
-        boardPanel = new JPanel(new GridLayout(gridSize, gridSize, 10, 10));
+        boardPanel = new JPanel(new GridLayout(gridSize, gridSize));
         buttons = new ArrayList<>();
         buttonValues = new ArrayList<>();
         images = new HashMap<>();
 
         loadImages();
 
-        blankImage = new ImageIcon("blankImage.png");
+        blankImage = new ImageIcon("blankImage.jpg");
 
         initializeButtons();
 
@@ -76,10 +76,12 @@ public class MemoryGame extends JFrame {
 
         for (int i = 0; i < gridSize * gridSize; i++) {
             JButton button = new JButton();
+            button.setPreferredSize(new Dimension(100, 100)); // Set square size
             button.addActionListener(new ButtonListener());
             button.setIcon(blankImage);
             buttons.add(button);
             boardPanel.add(button);
+            button.setIcon(new ImageIcon(this.getClass().getResource("blankImage.jpg")));
         }
     }
 
@@ -93,7 +95,7 @@ public class MemoryGame extends JFrame {
         Timer timer = new Timer(1000, new ActionListener() {
             public void actionPerformed(ActionEvent evt) {
                 hideImages();
-                
+
             }
         });
         timer.setRepeats(false);
@@ -102,7 +104,7 @@ public class MemoryGame extends JFrame {
 
     private void hideImages() {
         for (JButton button : buttons) {
-            button.setIcon(blankImage);
+            button.setIcon(new ImageIcon(this.getClass().getResource("blankImage.jpg")));
         }
     }
 
