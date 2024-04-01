@@ -4,6 +4,8 @@
  */
 package menugui;
 
+import javax.swing.ImageIcon;
+
 /**
  *
  * @author Vinit Rao
@@ -17,6 +19,8 @@ public class HelpUI1 extends javax.swing.JFrame {
         initComponents();
         this.setLocationRelativeTo(null);
         this.setDefaultCloseOperation(HelpUI1.DO_NOTHING_ON_CLOSE);
+        ImageIcon icon = new ImageIcon(getClass().getResource("appIcon.png"));
+        setIconImage(icon.getImage());
     }
 
     /**

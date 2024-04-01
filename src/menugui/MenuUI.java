@@ -3,13 +3,14 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package menugui;
+import javax.swing.ImageIcon;
 import menugui.MemoryGame;
+
 /**
  *
  * @author Vinit Rao
  */
 public class MenuUI extends javax.swing.JFrame {
-
     /**
      * Creates new form MenuUI
      */
@@ -17,6 +18,8 @@ public class MenuUI extends javax.swing.JFrame {
         initComponents();
         this.setLocationRelativeTo(null);
         this.setDefaultCloseOperation(MenuUI.DO_NOTHING_ON_CLOSE);
+        ImageIcon icon = new ImageIcon(getClass().getResource("appIcon.png"));
+        setIconImage(icon.getImage());
     }
 
     /**
@@ -30,8 +33,9 @@ public class MenuUI extends javax.swing.JFrame {
 
         bPlay = new javax.swing.JButton();
         bHelp = new javax.swing.JButton();
-        bLeaderboard = new javax.swing.JButton();
+        bIndex = new javax.swing.JButton();
         bQuit = new javax.swing.JButton();
+        bInfo = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -61,16 +65,16 @@ public class MenuUI extends javax.swing.JFrame {
         });
         getContentPane().add(bHelp, new org.netbeans.lib.awtextra.AbsoluteConstraints(156, 311, 169, 79));
 
-        bLeaderboard.setBackground(new java.awt.Color(107, 72, 42));
-        bLeaderboard.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
-        bLeaderboard.setForeground(new java.awt.Color(255, 255, 255));
-        bLeaderboard.setText("Leaderboard");
-        bLeaderboard.addActionListener(new java.awt.event.ActionListener() {
+        bIndex.setBackground(new java.awt.Color(107, 72, 42));
+        bIndex.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
+        bIndex.setForeground(new java.awt.Color(255, 255, 255));
+        bIndex.setText("Index");
+        bIndex.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                bLeaderboardActionPerformed(evt);
+                bIndexActionPerformed(evt);
             }
         });
-        getContentPane().add(bLeaderboard, new org.netbeans.lib.awtextra.AbsoluteConstraints(331, 311, 169, 79));
+        getContentPane().add(bIndex, new org.netbeans.lib.awtextra.AbsoluteConstraints(331, 311, 169, 79));
 
         bQuit.setBackground(new java.awt.Color(102, 0, 0));
         bQuit.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
@@ -82,6 +86,17 @@ public class MenuUI extends javax.swing.JFrame {
             }
         });
         getContentPane().add(bQuit, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 10, 60, 60));
+
+        bInfo.setBackground(new java.awt.Color(51, 51, 51));
+        bInfo.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
+        bInfo.setForeground(new java.awt.Color(255, 255, 255));
+        bInfo.setText("i");
+        bInfo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bInfoActionPerformed(evt);
+            }
+        });
+        getContentPane().add(bInfo, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 60, 60));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/menugui/bg1.jpg"))); // NOI18N
         jLabel1.setText("jLabel1");
@@ -111,11 +126,18 @@ public class MenuUI extends javax.swing.JFrame {
         dispose();
     }//GEN-LAST:event_bQuitActionPerformed
 
-    private void bLeaderboardActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bLeaderboardActionPerformed
-        LeaderboardUI lgui = new LeaderboardUI();
-        lgui.show();
+    private void bIndexActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bIndexActionPerformed
+        IndexUI ixgui = new IndexUI();
+        ixgui.show();
         dispose();
-    }//GEN-LAST:event_bLeaderboardActionPerformed
+    }//GEN-LAST:event_bIndexActionPerformed
+
+    private void bInfoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bInfoActionPerformed
+        // TODO add your handling code here:
+        InfoUI igui = new InfoUI();
+        igui.show();
+        dispose();
+    }//GEN-LAST:event_bInfoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -156,7 +178,8 @@ public class MenuUI extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton bHelp;
-    private javax.swing.JButton bLeaderboard;
+    private javax.swing.JButton bIndex;
+    private javax.swing.JButton bInfo;
     private javax.swing.JButton bPlay;
     private javax.swing.JButton bQuit;
     private javax.swing.JLabel jLabel1;
