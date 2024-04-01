@@ -22,6 +22,7 @@ public class MemoryGame extends JFrame {
     private int pairsFound = 0;
     private int score = 0;
     private JButton startButton;
+  
     private JButton backButton;
     private JButton firstButton;
     private JButton secondButton;
@@ -29,9 +30,11 @@ public class MemoryGame extends JFrame {
     private boolean gameOver = false;
     private boolean gameStarted = false;
 
+
     public MemoryGame() {
         
         setTitle("Memory Game");
+
         this.setDefaultCloseOperation(MenuUI.DO_NOTHING_ON_CLOSE);
         setSize(650, 450);
         setLayout(new BorderLayout());
@@ -41,11 +44,12 @@ public class MemoryGame extends JFrame {
         
         Color color1 =new Color(107,72,42);
         Color color2 =new Color(255,255,255);
+      
         boardPanel = new JPanel(new GridLayout(gridSize, gridSize));
         buttons = new ArrayList<>();
         buttonValues = new ArrayList<>();
         images = new HashMap<>();
-        
+
         loadImages();
 
         blankImage = new ImageIcon("blankImage.jpg");
@@ -53,8 +57,10 @@ public class MemoryGame extends JFrame {
         initializeButtons();
 
         startButton = new JButton("Start");
+
         startButton.setBackground(color1);
         startButton.setForeground(color2);
+
         startButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 startGame();
@@ -62,6 +68,7 @@ public class MemoryGame extends JFrame {
         });
         add(startButton, BorderLayout.NORTH);
         add(boardPanel, BorderLayout.CENTER);
+
         
         backButton = new JButton("Back");
         backButton.setBackground(color1);
@@ -74,6 +81,7 @@ public class MemoryGame extends JFrame {
             }
         });
         add(backButton, BorderLayout.SOUTH);
+
         setVisible(true);
         this.setLocationRelativeTo(null);
     }
@@ -81,7 +89,9 @@ public class MemoryGame extends JFrame {
     private void loadImages() {
         for (int i = 1; i <= totalPairs; i++) {
             try {
+
                 ImageIcon icon = new ImageIcon(getClass().getResource("image" + i + ".png"));
+
                 images.put(i, icon);
             } catch (Exception ex) {
                 ex.printStackTrace();
@@ -99,7 +109,9 @@ public class MemoryGame extends JFrame {
 
         for (int i = 0; i < gridSize * gridSize; i++) {
             JButton button = new JButton();
+
             button.setPreferredSize(new Dimension(100, 100));
+
             button.addActionListener(new ButtonListener());
             button.setIcon(blankImage);
             buttons.add(button);
@@ -110,17 +122,21 @@ public class MemoryGame extends JFrame {
 
     private void startGame() {
         startButton.setEnabled(false);
+
         showingColors = true;
         gameStarted = true;
+
         for (JButton button : buttons) {
             int index = buttons.indexOf(button);
             int value = buttonValues.get(index);
             button.setIcon(images.get(value));
         }
+
         Timer timer = new Timer(3000, new ActionListener() {
             public void actionPerformed(ActionEvent evt) {
                 hideImages();
                 showingColors = false;
+
             }
         });
         timer.setRepeats(false);
@@ -137,7 +153,9 @@ public class MemoryGame extends JFrame {
         public void actionPerformed(ActionEvent e) {
             JButton clickedButton = (JButton) e.getSource();
 
+
             if (!gameStarted || !clickedButton.isEnabled() || pairsFound == totalPairs || showingColors || gameOver)
+
                 return;
 
             int index = buttons.indexOf(clickedButton);
@@ -172,6 +190,7 @@ public class MemoryGame extends JFrame {
 
     private void endGame() {
         score = pairsFound * 100 / totalPairs;
+
         for (JButton button : buttons) {
             int index = buttons.indexOf(button);
             int value = buttonValues.get(index);
@@ -179,6 +198,7 @@ public class MemoryGame extends JFrame {
         }
         JOptionPane.showMessageDialog(this, "Game Over! Your score: " + score);
         gameOver = true;
+
     }
 
     public static void main(String[] args) {
