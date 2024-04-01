@@ -4,8 +4,6 @@
  */
 package menugui;
 
-import javax.swing.ImageIcon;
-
 /**
  *
  * @author Vinit Rao
@@ -19,8 +17,6 @@ public class QuitUI extends javax.swing.JFrame {
         initComponents();
         this.setLocationRelativeTo(null);
         this.setDefaultCloseOperation(QuitUI.DO_NOTHING_ON_CLOSE);
-        ImageIcon icon = new ImageIcon(getClass().getResource("appIcon.png"));
-        setIconImage(icon.getImage());
     }
 
     /**
