@@ -65,6 +65,9 @@ public class QuitUI extends javax.swing.JFrame {
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/menugui/sadfish.jpg"))); // NOI18N
         jLabel1.setText("jLabel1");
+        jLabel1.setMaximumSize(new java.awt.Dimension(650, 450));
+        jLabel1.setMinimumSize(new java.awt.Dimension(650, 450));
+        jLabel1.setPreferredSize(new java.awt.Dimension(650, 450));
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 650, 450));
 
         pack();
