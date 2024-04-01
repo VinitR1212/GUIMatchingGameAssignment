@@ -17,10 +17,10 @@ public class HelpUI1 extends javax.swing.JFrame {
      */
     public HelpUI1() {
         initComponents();
-        this.setLocationRelativeTo(null);
         this.setDefaultCloseOperation(HelpUI1.DO_NOTHING_ON_CLOSE);
         ImageIcon icon = new ImageIcon(getClass().getResource("appIcon.png"));
         setIconImage(icon.getImage());
+        this.setLocationRelativeTo(null);
     }
 
     /**
@@ -53,6 +53,8 @@ public class HelpUI1 extends javax.swing.JFrame {
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/menugui/help.jpg"))); // NOI18N
         jLabel1.setText("jLabel1");
+        jLabel1.setMaximumSize(new java.awt.Dimension(650, 450));
+        jLabel1.setMinimumSize(new java.awt.Dimension(650, 450));
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 650, 450));
 
         pack();
