@@ -30,7 +30,7 @@ public class MenuUI extends javax.swing.JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 Point currentLocation = waterbg.getLocation();
-                int newX = currentLocation.x - 2;
+                int newX = currentLocation.x - 3;
                 if (newX <= -1300) {
                     newX = 0;
                 }
