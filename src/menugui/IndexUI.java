@@ -4,7 +4,11 @@
  */
 package menugui;
 
+import java.awt.Point;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import javax.swing.ImageIcon;
+import javax.swing.Timer;
 
 /**
  *
@@ -17,10 +21,23 @@ public class IndexUI extends javax.swing.JFrame {
      */
     public IndexUI() {
         initComponents();
-        this.setLocationRelativeTo(null);
+        
         this.setDefaultCloseOperation(IndexUI.DO_NOTHING_ON_CLOSE);
         ImageIcon icon = new ImageIcon(getClass().getResource("appIcon.png"));
         setIconImage(icon.getImage());
+        Timer timer = new Timer(50, new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                Point currentLocation = waterbg.getLocation();
+                int newX = currentLocation.x - 3;
+                if (newX <= -1300) {
+                    newX = 0;
+                }
+                waterbg.setLocation(newX, currentLocation.y);
+            }
+        });
+        timer.start();
+        this.setLocationRelativeTo(null);
     }
 
     /**
@@ -42,9 +59,11 @@ public class IndexUI extends javax.swing.JFrame {
         bShark = new javax.swing.JButton();
         bSnapper = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
+        waterbg = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setIconImages(null);
+        setPreferredSize(new java.awt.Dimension(663, 485));
         setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -75,7 +94,7 @@ public class IndexUI extends javax.swing.JFrame {
                 bBassActionPerformed(evt);
             }
         });
-        getContentPane().add(bBass, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 130, 130, 80));
+        getContentPane().add(bBass, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 130, 130, 80));
 
         bPiranha.setIcon(new javax.swing.ImageIcon(getClass().getResource("/menugui/image4.png"))); // NOI18N
         bPiranha.setText("Piranha");
@@ -84,7 +103,7 @@ public class IndexUI extends javax.swing.JFrame {
                 bPiranhaActionPerformed(evt);
             }
         });
-        getContentPane().add(bPiranha, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 130, 130, 80));
+        getContentPane().add(bPiranha, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 130, 130, 80));
 
         bSalmon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/menugui/image5.png"))); // NOI18N
         bSalmon.setText("Salmon");
@@ -93,7 +112,7 @@ public class IndexUI extends javax.swing.JFrame {
                 bSalmonActionPerformed(evt);
             }
         });
-        getContentPane().add(bSalmon, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 250, 130, 80));
+        getContentPane().add(bSalmon, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 250, 130, 80));
 
         bPerch.setIcon(new javax.swing.ImageIcon(getClass().getResource("/menugui/image8.png"))); // NOI18N
         bPerch.setText("Perch");
@@ -129,11 +148,23 @@ public class IndexUI extends javax.swing.JFrame {
                 bSnapperActionPerformed(evt);
             }
         });
-        getContentPane().add(bSnapper, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 250, 130, 80));
+        getContentPane().add(bSnapper, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 250, 130, 80));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/menugui/index.jpg"))); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/menugui/index.png"))); // NOI18N
         jLabel1.setText("jLabel1");
+        jLabel1.setMaximumSize(new java.awt.Dimension(650, 450));
+        jLabel1.setMinimumSize(new java.awt.Dimension(650, 450));
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 650, 450));
+
+        waterbg.setIcon(new javax.swing.ImageIcon(getClass().getResource("/menugui/waterbg2.jpg"))); // NOI18N
+        waterbg.setText("jLabel2");
+        waterbg.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        waterbg.setMaximumSize(new java.awt.Dimension(1950, 450));
+        waterbg.setMinimumSize(new java.awt.Dimension(1950, 450));
+        waterbg.setName(""); // NOI18N
+        waterbg.setPreferredSize(new java.awt.Dimension(1950, 450));
+        waterbg.setRequestFocusEnabled(false);
+        getContentPane().add(waterbg, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1950, 450));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -250,5 +281,6 @@ public class IndexUI extends javax.swing.JFrame {
     private javax.swing.JButton bShark;
     private javax.swing.JButton bSnapper;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel waterbg;
     // End of variables declaration//GEN-END:variables
 }

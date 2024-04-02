@@ -4,7 +4,11 @@
  */
 package menugui;
 
+import java.awt.Point;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import javax.swing.ImageIcon;
+import javax.swing.Timer;
 
 /**
  *
@@ -20,7 +24,20 @@ public class HelpUI1 extends javax.swing.JFrame {
         this.setDefaultCloseOperation(HelpUI1.DO_NOTHING_ON_CLOSE);
         ImageIcon icon = new ImageIcon(getClass().getResource("appIcon.png"));
         setIconImage(icon.getImage());
+        Timer timer = new Timer(50, new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                Point currentLocation = waterbg.getLocation();
+                int newX = currentLocation.x - 3;
+                if (newX <= -1300) {
+                    newX = 0;
+                }
+                waterbg.setLocation(newX, currentLocation.y);
+            }
+        });
+        timer.start();
         this.setLocationRelativeTo(null);
+        
     }
 
     /**
@@ -34,9 +51,11 @@ public class HelpUI1 extends javax.swing.JFrame {
 
         bBack = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
+        waterbg = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setIconImages(null);
+        setPreferredSize(new java.awt.Dimension(663, 485));
         setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -51,11 +70,21 @@ public class HelpUI1 extends javax.swing.JFrame {
         });
         getContentPane().add(bBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 110, 60));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/menugui/help.jpg"))); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/menugui/help.png"))); // NOI18N
         jLabel1.setText("jLabel1");
         jLabel1.setMaximumSize(new java.awt.Dimension(650, 450));
         jLabel1.setMinimumSize(new java.awt.Dimension(650, 450));
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 650, 450));
+
+        waterbg.setIcon(new javax.swing.ImageIcon(getClass().getResource("/menugui/waterbg2.jpg"))); // NOI18N
+        waterbg.setText("jLabel2");
+        waterbg.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        waterbg.setMaximumSize(new java.awt.Dimension(1950, 450));
+        waterbg.setMinimumSize(new java.awt.Dimension(1950, 450));
+        waterbg.setName(""); // NOI18N
+        waterbg.setPreferredSize(new java.awt.Dimension(1950, 450));
+        waterbg.setRequestFocusEnabled(false);
+        getContentPane().add(waterbg, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1950, 450));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -106,5 +135,6 @@ public class HelpUI1 extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton bBack;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel waterbg;
     // End of variables declaration//GEN-END:variables
 }
